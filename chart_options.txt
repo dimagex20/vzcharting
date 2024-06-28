@@ -1,33 +1,17 @@
-  const options = {
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'My Highcharts Line Chart'
-    },
     xAxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      plotLines: plotLineValue !== null ? [{
-        color: 'red', // Color of the plot line
-        width: 2, // Width of the plot line
-        value: plotLineValue, // Position of the plot line
-        label: {
-          text: 'Plot Line', // Label for the plot line
-          align: 'right',
-          style: {
-            color: 'red'
+      ...(plotLineValue !== null && {
+        plotLines: [{
+          color: 'red', // Color of the plot line
+          width: 2, // Width of the plot line
+          value: plotLineValue, // Position of the plot line
+          label: {
+            text: 'Plot Line', // Label for the plot line
+            align: 'right',
+            style: {
+              color: 'red'
+            }
           }
-        }
-      }] : []
+        }]
+      })
     },
-    yAxis: {
-      title: {
-        text: 'Value'
-      }
-    },
-    series: [
-      {
-        name: 'My Data Series',
-        data: chartData
-      }
-    ]
